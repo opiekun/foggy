@@ -1,0 +1,84 @@
+<!-- Optional Audio for hover/clicks -->
+<audio id="hover-sound"
+    src="data:audio/mp3;base64,//NExAAAAANIAAAAAExBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
+    preload="auto"></audio>
+<audio id="click-sound"
+    src="data:audio/mp3;base64,//NExAAAAANIAAAAAExBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
+    preload="auto"></audio>
+
+<!-- News Popup -->
+<div id="news-popup" class="news-popup hidden" role="dialog" aria-labelledby="news-title" [class.hidden]="!showNews">
+    <div class="news-header">
+        <span id="news-title">Update News</span>
+        <button class="window-btn close" aria-label="Close News" (click)="closeNews()">×</button>
+    </div>
+    <div class="news-content">
+        <h3>Latest Update: Angular V2 Launched!</h3>
+        <p>Welcome to the new and improved Foggy portfolio, now rebuilt fully in Angular with classic green Steam aesthetics.</p>
+        <button class="action-btn" (click)="closeNews()">Close</button>
+    </div>
+</div>
+
+<div class="steam-window">
+    <!-- Title Bar -->
+    <div class="title-bar" id="title-bar">
+        <div class="title-bar-left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Foggy Logo"
+                class="steam-icon">
+            <span class="title-text">Foggy</span>
+        </div>
+        <div class="title-bar-right">
+            <button class="window-btn minimize" aria-label="Minimize">_</button>
+            <button class="window-btn maximize" aria-label="Maximize">□</button>
+            <button class="window-btn close" aria-label="Close">×</button>
+        </div>
+    </div>
+
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <div class="menu-left">
+            <button class="menu-item" aria-label="Foggy Menu">Foggy</button>
+            <button class="menu-item" aria-label="View Menu">View</button>
+            <button class="menu-item" aria-label="Friends Menu">Friends</button>
+            <button class="menu-item" aria-label="Games Menu">Games</button>
+            <button class="menu-item" aria-label="Help Menu">Help</button>
+        </div>
+        <div class="menu-right">
+            <a href="#" class="global-btn download-btn">⬇ Download CV</a>
+            <a routerLink="/contact" class="global-btn contact-btn">✉ Contact Me</a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-area">
+        <!-- Header/Navigation -->
+        <div class="nav-header">
+            <div class="nav-tabs" role="tablist">
+                <button class="nav-tab" routerLink="/home" routerLinkActive="active" role="tab"
+                    id="tab-home">HOME</button>
+                <button class="nav-tab" routerLink="/about" routerLinkActive="active" role="tab"
+                    id="tab-about">ABOUT</button>
+                <button class="nav-tab" routerLink="/projects" routerLinkActive="active" role="tab"
+                    id="tab-projects">PROJECTS</button>
+                <button class="nav-tab" routerLink="/contact" routerLinkActive="active" role="tab"
+                    id="tab-contact">CONTACT</button>
+            </div>
+        </div>
+
+        <!-- Content Container -->
+        <div class="content-container" id="tab-content-container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+    <!-- Footer / Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">
+            <button class="status-btn" aria-label="Add a Game">+ ADD A PROJECT...</button>
+        </div>
+        <div class="status-right">
+            <span>SYSTEM: READY</span>
+            <span class="network-status">ONLINE</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+.tab-content-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.banner-area {
+    background: #2a3126;
+    padding: 20px;
+    border: 1px solid #1a1a1a;
+    box-shadow: inset 1px 1px 5px rgba(0,0,0,0.5);
+    flex-grow: 1;
+}
+
+.hero-box {
+    display: flex;
+    background: #394236;
+    border: 1px solid #1a1a1a;
+    margin-top: 10px;
+    min-height: 250px;
+}
+
+.hero-image {
+    width: 400px;
+    border-right: 1px solid #1a1a1a;
+}
+
+.hero-image h2 {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.hero-info {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.playing-status {
+    color: #8bb141; /* bright green for playing */
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.profile-stats {
+    background: #2a3126;
+    border: 1px solid #1a1a1a;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+.stat-row {
+    margin-bottom: 5px;
+}
+
+.stat-row strong {
+    color: #a7b09d;
+    display: inline-block;
+    width: 140px;
+}
+
+.tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.tag {
+    background: #1f211d;
+    color: #8f9885;
+    padding: 4px 8px;
+    font-size: 11px;
+    border: 1px solid #1a1a1a;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .hero-box {
+        flex-direction: column;
+    }
+    .hero-image {
+        width: 100%;
+        height: 150px;
+        border-right: none;
+        border-bottom: 1px solid #1a1a1a;
+    }
+}

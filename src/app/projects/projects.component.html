@@ -1,0 +1,129 @@
+<div class="tab-content-container">
+    <div class="projects-grid">
+        <div class="sidebar">
+            <div class="search-bar">
+                <input type="text" placeholder="Search" aria-label="Search Projects">
+            </div>
+
+            <div class="sidebar-group">
+                <div class="group-title">▼ Web Apps</div>
+                <ul class="game-list" role="listbox">
+                    <li [class.active]="activeProject === 'vertrau'" 
+                        (click)="selectProject('vertrau')" 
+                        role="option" 
+                        [attr.aria-selected]="activeProject === 'vertrau'" 
+                        tabindex="0">
+                        Vertrau Contracts
+                    </li>
+                    <li [class.active]="activeProject === 'components'" 
+                        (click)="selectProject('components')" 
+                        role="option" 
+                        [attr.aria-selected]="activeProject === 'components'" 
+                        tabindex="-1">
+                        Angular Components
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-group">
+                <div class="group-title">▼ Experiments</div>
+                <ul class="game-list" role="listbox">
+                    <li [class.active]="activeProject === 'dungeon'" 
+                        (click)="selectProject('dungeon')" 
+                        role="option" 
+                        [attr.aria-selected]="activeProject === 'dungeon'" 
+                        tabindex="-1">
+                        Dungeon Portfolio Prototype
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="library-main">
+            <!-- Vertrau Contracts -->
+            <div *ngIf="activeProject === 'vertrau'" class="project-detail">
+                <div class="game-header">
+                    <h2>Vertrau Contracts</h2>
+                    <div class="game-actions">
+                        <button class="play-btn">LIVE DEMO</button>
+                        <button class="action-btn">VIEW GITHUB</button>
+                    </div>
+                </div>
+                <div class="game-details">
+                    <p><strong>STATUS:</strong> Shipped</p>
+                    <p><strong>TECH:</strong> Angular, .NET, PostgreSQL</p>
+                    <hr>
+                    <div class="project-body">
+                        <h3>Problem</h3>
+                        <p>Managing contract workflows manually was slow and prone to errors. Business users
+                            needed a reliable system to create, track, and execute contracts efficiently.</p>
+
+                        <h3>What I Built</h3>
+                        <p>A comprehensive business system integrating a robust Angular frontend with a
+                            secure .NET backend. Implemented real-time tracking, automated validations, and
+                            role-based access control.</p>
+
+                        <h3>Achievements Unlocked</h3>
+                        <div class="achievements">
+                            <div class="badge">Auth</div>
+                            <div class="badge">CRUD</div>
+                            <div class="badge">UI/UX</div>
+                        </div>
+
+                        <h3>Screenshots</h3>
+                        <div class="screenshots-grid">
+                            <div class="screenshot-placeholder">Screenshot 1</div>
+                            <div class="screenshot-placeholder">Screenshot 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Angular Components -->
+            <div *ngIf="activeProject === 'components'" class="project-detail">
+                <div class="game-header">
+                    <h2>Angular Components</h2>
+                    <div class="game-actions">
+                        <button class="play-btn">LIVE DEMO</button>
+                        <button class="action-btn">VIEW GITHUB</button>
+                    </div>
+                </div>
+                <div class="game-details">
+                    <p><strong>STATUS:</strong> Maintained</p>
+                    <p><strong>TECH:</strong> Angular, Storybook, SCSS</p>
+                    <hr>
+                    <div class="project-body">
+                        <h3>Problem</h3>
+                        <p>Inconsistent UI across different internal tools led to a fragmented user experience.</p>
+                        <h3>What I Built</h3>
+                        <p>A reusable Angular component library heavily documented in Storybook, ensuring
+                            brand consistency and accelerating development for multiple teams.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dungeon -->
+            <div *ngIf="activeProject === 'dungeon'" class="project-detail">
+                <div class="game-header">
+                    <h2>Dungeon Portfolio Prototype</h2>
+                    <div class="game-actions">
+                        <button class="play-btn">LIVE DEMO</button>
+                        <button class="action-btn">VIEW GITHUB</button>
+                    </div>
+                </div>
+                <div class="game-details">
+                    <p><strong>STATUS:</strong> Prototype</p>
+                    <p><strong>TECH:</strong> Three.js, WebGL</p>
+                    <hr>
+                    <div class="project-body">
+                        <h3>Problem</h3>
+                        <p>Wanted a creative way to showcase projects.</p>
+                        <h3>What I Built</h3>
+                        <p>An experimental 3D interactive portfolio where users navigate a dungeon to
+                            discover projects.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
