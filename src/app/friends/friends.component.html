@@ -1,0 +1,21 @@
+<div class="friends-window" *ngIf="isVisible" [style.top.px]="y" [style.left.px]="x">
+    <div class="friends-header" (mousedown)="startDragging($event)">
+        <span class="title">FRIENDS</span>
+        <button class="close-btn" (click)="close()">×</button>
+    </div>
+    <div class="friends-content">
+        <div class="friends-list">
+            <a *ngFor="let friend of friends" [href]="friend.link" target="_blank" class="friend-item">
+                <div class="avatar-container">
+                    <img [src]="friend.icon" [alt]="friend.name" class="avatar">
+                </div>
+                <div class="friend-info">
+                    <div class="friend-name">{{ friend.name }}</div>
+                    <div class="friend-status" [class.online]="friend.status === 'Online'">
+                        {{ friend.status }}
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
