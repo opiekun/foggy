@@ -38,8 +38,8 @@ export class FriendsComponent {
   ];
 
   isVisible = true;
-  x = 100;
-  y = 100;
+  x = window.innerWidth - 300; // Right side (approx 260px width + 40px margin)
+  y = window.innerHeight / 2 - 150; // Middle height
   private isDragging = false;
   private offset = { x: 0, y: 0 };
 
