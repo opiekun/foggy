@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Friend } from '../models/friend.model';
+import { WindowService } from '../services/window.service';
 
 @Component({
   selector: 'app-friends',
@@ -10,6 +11,8 @@ import { Friend } from '../models/friend.model';
   styleUrl: './friends.component.css'
 })
 export class FriendsComponent {
+  windowService = inject(WindowService);
+  
   friends: Friend[] = [
     {
       name: 'LinkedIn',
@@ -37,14 +40,13 @@ export class FriendsComponent {
     }
   ];
 
-  isVisible = true;
   x = window.innerWidth - 300; // Right side (approx 260px width + 40px margin)
   y = window.innerHeight / 2 - 150; // Middle height
   private isDragging = false;
   private offset = { x: 0, y: 0 };
 
   close() {
-    this.isVisible = false;
+    this.windowService.toggleFriends();
   }
 
   startDragging(event: MouseEvent) {

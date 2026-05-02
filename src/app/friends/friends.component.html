@@ -1,4 +1,4 @@
-<div class="friends-window" *ngIf="isVisible" [style.top.px]="y" [style.left.px]="x">
+<div class="friends-window" *ngIf="windowService.friendsVisible()" [style.top.px]="y" [style.left.px]="x">
     <div class="friends-header" (mousedown)="startDragging($event)">
         <span class="title">FRIENDS</span>
         <button class="close-btn" (click)="close()">×</button>

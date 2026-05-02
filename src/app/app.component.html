@@ -7,7 +7,7 @@
     preload="auto"></audio>
 
 <!-- News Popup -->
-<div id="news-popup" class="news-popup hidden" role="dialog" aria-labelledby="news-title" [class.hidden]="!showNews">
+<div id="news-popup" class="news-popup hidden" role="dialog" aria-labelledby="news-title" [class.hidden]="!windowService.newsVisible()">
     <div class="news-header">
         <span id="news-title">Update News</span>
         <button class="window-btn close" aria-label="Close News" (click)="closeNews()">×</button>
@@ -38,8 +38,25 @@
     <div class="menu-bar">
         <div class="menu-left">
             <button class="menu-item" aria-label="Foggy Menu">Foggy</button>
-            <button class="menu-item" aria-label="View Menu">View</button>
-            <button class="menu-item" aria-label="Friends Menu">Friends</button>
+            <div class="menu-item-container">
+                <button class="menu-item" (click)="toggleMenu($event, 'view')">View</button>
+                <div class="dropdown" *ngIf="activeMenu === 'view'" (click)="$event.stopPropagation()">
+                    <button routerLink="/projects" (click)="activeMenu = null">Library</button>
+                    <button (click)="toggleNews()">News Updates</button>
+                    <div class="separator"></div>
+                    <button (click)="activeMenu = null">Settings</button>
+                </div>
+            </div>
+            <div class="menu-item-container">
+                <button class="menu-item" (click)="toggleMenu($event, 'friends')">Friends</button>
+                <div class="dropdown" *ngIf="activeMenu === 'friends'" (click)="$event.stopPropagation()">
+                    <button (click)="viewFriends()">View Friends List</button>
+                    <div class="separator"></div>
+                    <button (click)="setStatus('Online')">Change Status: Online</button>
+                    <button (click)="setStatus('Away')">Change Status: Away</button>
+                    <button (click)="setStatus('Snoozing')">Change Status: Snooze</button>
+                </div>
+            </div>
             <button class="menu-item" aria-label="Games Menu">Games</button>
             <button class="menu-item" aria-label="Help Menu">Help</button>
         </div>
